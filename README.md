@@ -68,7 +68,7 @@ Part III. 장고 웹서버 첫 프로젝트 생성
     from .models import Candidate #models에 정의된 Candidate를 불러온다
     
     def notice(request):
-	if (DEBUG): print("Method: ", request.method)
+    	if (DEBUG): print("Method: ", request.method)
 	candidates = Candidate.objects.all()[0:3]
 	context = {'candidates':candidates}
     
