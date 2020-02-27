@@ -75,7 +75,7 @@ Part III. 장고 웹서버 첫 프로젝트 생성
 	if request.method == "POST":
 		if (DEBUG): print("userId: ", request.POST["email"])	
 		return redirect('main')
-	return render(request, 'notice.html', context)
+        return render(request, 'notice.html', context)
     
     $ nano templates/notice.html
     {% for candidate in candidates %} 
