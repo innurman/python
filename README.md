@@ -69,13 +69,13 @@ Part III. 장고 웹서버 첫 프로젝트 생성
     
     def notice(request):
     	if (DEBUG): print("Method: ", request.method)
-	candidates = Candidate.objects.all()[0:3]
-	context = {'candidates':candidates}
+        candidates = Candidate.objects.all()[0:3]
+        context = {'candidates':candidates}
     
 	if request.method == "POST":
-		if (DEBUG): print("userId: ", request.POST["email"])	
-		return redirect('main')
-        return render(request, 'notice.html', context)
+        if (DEBUG): print("userId: ", request.POST["email"])	
+            return redirect('main')
+	return render(request, 'notice.html', context)
     
     $ nano templates/notice.html
     {% for candidate in candidates %} 
