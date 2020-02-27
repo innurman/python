@@ -78,7 +78,7 @@ Part III. 장고 웹서버 첫 프로젝트 생성
 	return render(request, 'notice.html', context)
     
     $ nano templates/notice.html
-    {% for candidate in candidates %}
+    {% for candidate in candidates %} 
     <div class="card">
         <div class="card-header" id="headingOne">
             <h5 class="mb-0">
