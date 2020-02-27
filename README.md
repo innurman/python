@@ -45,7 +45,7 @@ Part III. 장고 웹서버 첫 프로젝트 생성
     $ python manage.py startapp hello
     
     #Seoul Time zone
-    $ nano hello/setting.py
+    $ nano hello/settings.py
     LANGUAGE_CODE = 'ko'
     TIME_ZONE = 'Asia/Seoul'
     USE_I18N = True
