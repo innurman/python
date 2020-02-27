@@ -43,6 +43,15 @@ Part II. 장고 웹서버 실행
 Part III. 장고 웹서버 첫 프로젝트 생성
 
     $ python manage.py startapp hello
+    
+    #Seoul Time zone
+    $ nano hello/setting.py
+    LANGUAGE_CODE = 'ko'
+    TIME_ZONE = 'Asia/Seoul'
+    USE_I18N = True
+    USE_L10N = True
+    USE_TZ = False 
+
     $ nano hello/models.py
     
     from django.db import models
