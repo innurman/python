@@ -45,14 +45,65 @@ Part III. 장고 웹서버 첫 프로젝트 생성
     $ python manage.py startapp hello
     $ 
 
-
-
-
 db 테이블 생성 후 최종 디비에 반영하기
 
     $ python manage.py makemigrations
     $ python manage.py migrate
 
 
+
+Part IV. 배포
+
+    I. package를 통한 nginx 설치
+    package를 이용하여 nginx를 설치한다.
+
+    $ sudo apt-get install nginx
+    $ nginx -v
+    nginx version: nginx/1.4.6 (Ubuntu)
+
+    $ sudo service nginx start
+
+    $ sudo service nginx status
+     * nginx is running
+
+
+    http://localhost/
+    Welcome to nginx!
+    If you see this page, the nginx web server is successfully
+
+    II. Nginx Setting
+    Django를 이용해서 서버에 요청을 보낼 수 있도록 Nginx 설정 파일을 생성한다.
+
+    /etc/nginx/sites-available/sotolab
+
+    server {
+        listen 80;
+        server_name sotolab;
+
+        location / {
+            proxy_pass http://localhost:8000;
+        }
+    }
+    이 설정은 로컬 포트 8000으로 들어오는 모든 요청을 Django로 보내서 응답하도록 한다
+
+
+    $ sudo ln -s /etc/nginx/sites-available/sotolab /etc/nginx/sites-enabled/sotolab
+    $ ls -l /etc/nginx/sites-enabled
+
+
+    $ sudo rm /etc/nginx/sites-enabled/default
+
+
+    $ sudo service nginx reload
+
+    $ cd workspace/django
+    $ source myvenv/bin/activate
+    $ cd start_django
+    $ python manage.py runserver
+
+
+    
+    
+    
 
 
