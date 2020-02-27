@@ -43,21 +43,74 @@ Part II. 장고 웹서버 실행
 Part III. 장고 웹서버 첫 프로젝트 생성
 
     $ python manage.py startapp hello
-    $ 
+    $ nano hello/models.py
+    
+    from django.db import models
+    # Create your models here.
+    class Candidate(models.Model):
+    id = models.AutoField(primary_key=True)
+    title = models.CharField(max_length=20)
+    introduction = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
 
-db 테이블 생성 후 최종 디비에 반영하기
-
+    def __str__(self):
+        return self.title
+        
+    $ nano hello/admin.py    
+    from django.contrib import admin
+    from .models import Candidate #앞에서 만든 Post모델을 가져온다.
+    
+    # Register your models here. 
+    admin.site.register(Candidate) #만든 모델을 관리자 페이지에서 볼려면!   
+    
+    $ nano hello/views.py
+    
+    from .models import Candidate #models에 정의된 Candidate를 불러온다
+    
+    def notice(request):
+	if (DEBUG): print("Method: ", request.method)
+	candidates = Candidate.objects.all()[0:3]
+	context = {'candidates':candidates}
+    
+	if request.method == "POST":
+		if (DEBUG): print("userId: ", request.POST["email"])	
+		return redirect('main')
+	return render(request, 'notice.html', context)
+    
+    $ nano templates/notice.html
+    {% for candidate in candidates %}
+    <div class="card">
+        <div class="card-header" id="headingOne">
+            <h5 class="mb-0">
+            <button class="btn btn-link" type="button" data-toggle="collapse"
+            data-target="#ab{{candidate.id}}" aria-expanded="false"
+            aria-controls="collapseOne">
+            {{candidate.title}} / {{candidate.created_at}}
+            </button>
+            </h5>
+        </div>
+        <div id='ab{{candidate.id}}' class="collapse" aria-labelledby="headingOne"
+           data-parent="#accordion">
+              <div class="card-body">
+                  {{candidate.introduction}}
+              </div>
+         </div>
+     </div>
+     {% endfor %}
+    
+    db 테이블 생성 후 최종 디비에 반영하기
     $ python manage.py makemigrations
     $ python manage.py migrate
 
-
+    http://sotolab.com:8000/admin/
 
 Part IV. 배포
 
     I. package를 통한 nginx 설치
     package를 이용하여 nginx를 설치한다.
 
-    $ sudo apt-get install nginx
+    $ sudo apt update
+    $ sudo apt install nginx
     $ nginx -v
     nginx version: nginx/1.4.6 (Ubuntu)
 
