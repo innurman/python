@@ -98,7 +98,9 @@ Part III. 장고 웹서버 첫 프로젝트 생성
      </div>
      {% endfor %}
     
-    db 테이블 생성 후 최종 디비에 반영하기
+    $ python manage.py createsuperuser
+    
+    db 테이블 생성 후 최종 디비에 반영하기    
     $ python manage.py makemigrations
     $ python manage.py migrate
 
