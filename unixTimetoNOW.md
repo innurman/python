@@ -8,7 +8,9 @@
 			</td>
 		</tr>
 		<tr>
-			<td><textarea id="unix_url" style="width: 100%;height: 100px; line-height:1.2; resize:none;padding:10px;" placeholder="이곳에 변환하실 UNIX시간을 넣어주세요."></textarea></td>
+			<td>
+ <textarea id="unix_url" style="width: 100%;height: 100px; line-height:1.2; resize:none;padding:10px;" placeholder="이곳에 변환하실 UNIX시간을 넣어주세요.">
+</textarea></td>
 		</tr>
 		<tr>
 			<td><input type="button" class="button" value="변환" id="unix_change">
