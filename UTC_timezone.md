@@ -1,3 +1,8 @@
+#현재 날짜를 넣으면 유닉스 시간 알려 줌
+
+https://heavenly-appear.tistory.com/260
+
+
 https://brownbears.tistory.com/242
 
       from time import localtime, strftime
