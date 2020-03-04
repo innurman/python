@@ -30,6 +30,13 @@ Part I. 파이썬 3.7 설치 (ubuntu 18.04 LTS)
      pip 10.0.1 from /hom
     $ pip install django
     $ deactivate
+    
+    #생성
+     $ pip freeze > requirements.txt
+
+     #설치
+     $pip install -r requirements.txt
+
 
 
 Part II. 장고 웹서버 실행
