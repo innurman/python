@@ -1,5 +1,3 @@
-
-
           [ urls.py ]
 
           path('search', views.search, name='search'),
