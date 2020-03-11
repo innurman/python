@@ -4,5 +4,6 @@
 https://milooy.wordpress.com/2016/02/18/extend-django-user-model/
 
 2  파이썬 프로젝트 블로그 웹
+
 https://github.com/nachwon/Djangogirls_assignment
 
