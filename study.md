@@ -51,10 +51,10 @@ DJANGO 정적 파일 기능 이해하기 : https://blog.hannal.com/2015/04/start
 
 나의 경우, secret_config.py 에 SECRET_KEY를 따로 저장하였고, settings.py 에서 import secret_config 를 통해서 읽어왔다. 그러면 settings.py 는 다음과 같이 수정된다.
 
- from . import secret_config
- ...
- SECRET_KEY = secret_config.SECRET_KEY
- ...
+    from . import secret_config
+    ...
+    SECRET_KEY = secret_config.SECRET_KEY
+    ...
  
 5. 배포하려면 생각보다 해야할게 많다.
 말 그대로다. 로컬에서 작업하는 것과는 다르게, 생각보다 해야할게 많다. 순차적으로 생각해보면,
